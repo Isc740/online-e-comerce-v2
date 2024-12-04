@@ -13,10 +13,10 @@ const Utils = {
         return offset === 1 && limit === 1 ? data[0] : data;
     },
 
-    listenCardClick(cards) {
-        cards.forEach((card) => {
-            card.addEventListener("click", () => {
-                const productId = card.getAttribute("data-id");
+    listenCardClick(targets) {
+        targets.forEach((target) => {
+            target.addEventListener("click", () => {
+                const productId = target.parentNode.parentNode.getAttribute("data-id");
                 window.location.href = `/html/details.html?id=${productId}`;
             });
         });
@@ -24,15 +24,13 @@ const Utils = {
 
     getProductCard: (item) => `
         <div class="card product-card" style="width: 18rem;" data-id="${item.id}">
-          <div class="fluid single-product-trigger">
-            <img src="${item.image}" class="product-img card-img-top mx-auto my-4" alt="product image">
+          <div class="fluid d-flex justify-content-center">
+            <img src="${item.image}" class="single-product-trigger product-img fluid-img card-img-top mx-auto my-4" alt="product image">
           </div>
           <div class="card-body shadow-sm">
             <h5 class="card-title">${item.title}</h5>
             <p class="card-text">${item.description}</p>
-            <div class="justify-content-center d-flex">
-              <button class="btn btn-primary product-btn w-100 single-product-trigger">View product</button>
-            </div>
+            <button class="btn btn-primary product-btn w-100 single-product-trigger">View product</button>
           </div>
           <ul class="list-group list-group-flush text-center">
             <li class="list-group-item text-body-secondary">Rating: ${item.rating.rate}</li>

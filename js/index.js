@@ -5,7 +5,7 @@ async function loadProducts() {
         (product) =>
             (productContainer.innerHTML += Utils.getProductCard(product)),
     );
-    Utils.listenCardClick(document.querySelectorAll(".product-card"));
+    Utils.listenCardClick(document.querySelectorAll(".single-product-trigger"));
 }
 
 loadProducts();
