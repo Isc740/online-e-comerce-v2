@@ -3,7 +3,7 @@ async function loadProducts() {
     const mainProducts = await Utils.fetchProducts(1, 20);
     mainProducts.map(
         (product) =>
-            (productContainer.innerHTML += Utils.getProductCard(product)),
+            productContainer.innerHTML += Utils.getProductCard(product),
     );
     Utils.listenCardClick(document.querySelectorAll(".single-product-trigger"));
 }

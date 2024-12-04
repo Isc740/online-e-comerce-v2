@@ -16,27 +16,28 @@ const Utils = {
     listenCardClick(targets) {
         targets.forEach((target) => {
             target.addEventListener("click", () => {
-                const productId = target.parentNode.parentNode.getAttribute("data-id");
+                const productId =
+                    target.parentNode.parentNode.getAttribute("data-id");
                 window.location.href = `/html/details.html?id=${productId}`;
             });
         });
     },
 
     getProductCard: (item) => `
-        <div class="card product-card" style="width: 18rem;" data-id="${item.id}">
+        <div class="card product-card d-flex flex-column" style="width: 19rem;" data-id="${item.id}">
           <div class="fluid d-flex justify-content-center">
             <img src="${item.image}" class="single-product-trigger product-img fluid-img card-img-top mx-auto my-4" alt="product image">
           </div>
-          <div class="card-body shadow-sm">
+          <div class="container">
             <h5 class="card-title">${item.title}</h5>
-            <p class="card-text">${item.description}</p>
+          </div>
+          <div class="card-body shadow-sm d-flex flex-column justify-content-end mt-2">
+            <p class="card-text mb-0">Rating: ${item.rating.rate}</p>
+            <p class="card-text text-body-secondary m-0">Amount Bought: ${item.rating.count}</p>
+            <p class="card-text text-success m-0">Price: <strong>${item.price}</strong></p>
             <button class="btn btn-primary product-btn w-100 single-product-trigger">View product</button>
           </div>
-          <ul class="list-group list-group-flush text-center">
-            <li class="list-group-item text-body-secondary">Rating: ${item.rating.rate}</li>
-            <li class="list-group-item text-body-secondary">Amount Bought: ${item.rating.count}</li>
-            <li class="list-group-item text-success">Price: <strong>${item.price}</strong></li>
-          </ul>
         </div>
+
     `,
 };

@@ -2,6 +2,16 @@
     cursor: pointer;
 }
 
+.product-container {
+    height: 100vh;
+}
+
+.card-body {
+    margin-top: auto;
+
+}
+
 .product-img {
-    max-width: 150px;
+    height: 150px;
+    width: auto;
 }
