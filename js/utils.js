@@ -13,6 +13,19 @@ const Utils = {
         return offset === 1 && limit === 1 ? data[0] : data;
     },
 
+    async fetchUsers() {
+        try {
+            const response = await fetch(`https://fakestoreapi.com/users`);
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+
     listenCardClick(targets) {
         targets.forEach((target) => {
             target.addEventListener("click", () => {
@@ -38,6 +51,5 @@ const Utils = {
             <button class="btn btn-primary product-btn w-100 single-product-trigger">View product</button>
           </div>
         </div>
-
     `,
 };
