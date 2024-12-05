@@ -5,7 +5,7 @@ const Utils = {
         document.querySelector(".template-container").innerHTML = pageHtml;
     },
 
-    async fetchProducts(offset = 1, limit = 1) {
+    async fetchProducts(offset = 1, limit = 20) {
         const response = await fetch(
             `https://fakestoreapi.com/products?limit=${limit}&offset=${offset}`,
         );

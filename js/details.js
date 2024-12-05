@@ -51,7 +51,7 @@ const listenCartBtn = (productId) => {
 
             const userCart = Utils.getUserCart(sessionId);
 
-            if (productId in userCart.products) {
+            if (userCart.products.includes(productId)) {
                 Swal.fire({
                     title: "Error!",
                     text: "Product Already in the cart!",
