@@ -1,4 +1,4 @@
-async function main() {
+async function mainCart() {
     const sessionId = localStorage.getItem("userId");
     const products = await Utils.fetchProducts();
     const userCart = Utils.getUserCart(sessionId);
@@ -7,7 +7,7 @@ async function main() {
     listenRemoveCartItem(products, userCart, sessionId);
 }
 
-main();
+mainCart();
 
 const renderCartProducts = (products, userCart) => {
     const cartProducts = products.filter((product) =>

@@ -1,4 +1,4 @@
-async function main() {
+async function mainDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get("id");
     const productData = await Utils.fetchProduct(productId);
@@ -7,7 +7,7 @@ async function main() {
     listenCartBtn(productId);
 }
 
-main();
+mainDetails();
 
 const displaySingleProduct = (productData) => {
     document.querySelector(".details-container").innerHTML = `
@@ -67,11 +67,13 @@ const listenCartBtn = (productId) => {
             usersCarts[sessionId] = userCart;
 
             localStorage.setItem("usersCarts", JSON.stringify(usersCarts));
-            Swal.fire({
+            await Swal.fire({
                 title: "Added Product!",
                 text: "The product has been added to the cart!",
                 icon: "success",
                 confirmButtonText: "Return",
             });
+
+            await loadNavbar();
         });
 };

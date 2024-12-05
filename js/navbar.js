@@ -2,8 +2,8 @@ const getNavbar = async () => {
     const userId = localStorage.getItem("userId");
     const userCart = Utils.getUserCart(userId);
     const user = await Utils.fetchUser(userId);
-    console.log(user);
-    const name = userId ? user.username : "Login";
+
+    const userName = userId ? user.username : "Login";
 
     return `
     <nav class="navbar navbar-expand-md bg-body-tertiary mb-5 shadow-sm navbar-light">
@@ -28,7 +28,7 @@ const getNavbar = async () => {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success" href="/html/login.html">${name}</a>
+                        <a class="btn btn-success" href="/html/login.html">${userName}</a>
                     </li>
                 </ul>
             </div>
@@ -39,6 +39,8 @@ const getNavbar = async () => {
 
 async function loadNavbar() {
     document.querySelector(".navbar-container").innerHTML = await getNavbar();
+
+    console.log("loading navbar...");
 
     const navbar = document.querySelector(".navbar");
     const placeholder = document.querySelector(".navbar-placeholder");
