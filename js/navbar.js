@@ -1,5 +1,10 @@
-const getNavbar = () => {
-    const userCart = Utils.getUserCart(localStorage.getItem("userId"))
+const getNavbar = async () => {
+    const userId = localStorage.getItem("userId");
+    const userCart = Utils.getUserCart(userId);
+    const user = await Utils.fetchUser(userId);
+    console.log(user);
+    const name = userId ? user.username : "Login";
+
     return `
     <nav class="navbar navbar-expand-md bg-body-tertiary mb-5 shadow-sm navbar-light">
         <div class="container-fluid">
@@ -23,27 +28,31 @@ const getNavbar = () => {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success" href="/html/login.html">Login</a>
+                        <a class="btn btn-success" href="/html/login.html">${name}</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-`};
+`;
+};
 
-document.querySelector(".navbar-container").innerHTML = getNavbar();
+async function main() {
+    document.querySelector(".navbar-container").innerHTML = await getNavbar();
 
-const navbar = document.querySelector(".navbar");
-const placeholder = document.querySelector(".navbar-placeholder");
-const navbarHeight = navbar.offsetHeight;
+    const navbar = document.querySelector(".navbar");
+    const placeholder = document.querySelector(".navbar-placeholder");
+    const navbarHeight = navbar.offsetHeight;
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > navbarHeight) {
-        navbar.classList.add("fixed-top");
-        placeholder.style.height = `${navbarHeight}px`;
-    } else {
-        navbar.classList.remove("fixed-top");
-        placeholder.style.height = "0px";
-    }
-});
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > navbarHeight) {
+            navbar.classList.add("fixed-top");
+            placeholder.style.height = `${navbarHeight}px`;
+        } else {
+            navbar.classList.remove("fixed-top");
+            placeholder.style.height = "0px";
+        }
+    });
+}
 
+main();
