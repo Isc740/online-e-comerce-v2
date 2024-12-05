@@ -37,7 +37,7 @@ const getNavbar = async () => {
 `;
 };
 
-async function main() {
+async function loadNavbar() {
     document.querySelector(".navbar-container").innerHTML = await getNavbar();
 
     const navbar = document.querySelector(".navbar");
@@ -55,4 +55,4 @@ async function main() {
     });
 }
 
-main();
+loadNavbar();

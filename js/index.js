@@ -13,6 +13,7 @@ function searchProduct(products) {
     const searchInput = document.querySelector(".search-input");
     const productContainer = document.querySelector(".product-container");
     searchInput.addEventListener("input", (e) => {
+        e.preventDefault();
         if (searchInput.value === "") {
             loadProducts();
             return;
@@ -26,6 +27,9 @@ function searchProduct(products) {
                 productContainer.innerHTML += Utils.getProductCard(product);
             }
         }
+        Utils.listenCardClick(
+            document.querySelectorAll(".single-product-trigger"),
+        );
     });
 }
 
