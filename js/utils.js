@@ -10,7 +10,23 @@ const Utils = {
             `https://fakestoreapi.com/products?limit=${limit}&offset=${offset}`,
         );
         const data = await response.json();
-        return offset === 1 && limit === 1 ? data[0] : data;
+        return data;
+    },
+
+    async fetchProduct(id) {
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const data = await response.json();
+        return data;
+    },
+
+    getUserCart(id) {
+        const localCarts = JSON.parse(localStorage.getItem("usersCarts"));
+        for (cart of localCarts) {
+            if (cart.userId === id) {
+                return cart;
+            }
+        }
+        return { userId: id, products: [] };
     },
 
     async fetchUsers() {
@@ -44,10 +60,10 @@ const Utils = {
           <div class="container">
             <h5 class="card-title">${item.title}</h5>
           </div>
-          <div class="card-body shadow-sm d-flex flex-column justify-content-end mt-2">
+          <div class="card-body shadow-sm d-flex flex-column justify-content-end my-2">
             <p class="card-text mb-0">Rating: ${item.rating.rate}</p>
             <p class="card-text text-body-secondary m-0">Amount Bought: ${item.rating.count}</p>
-            <p class="card-text text-success m-0">Price: <strong>${item.price}</strong></p>
+            <p class="card-text text-success mt-0 mb-3">Price: <strong>${item.price}</strong></p>
             <button class="btn btn-primary product-btn w-100 single-product-trigger">View product</button>
           </div>
         </div>

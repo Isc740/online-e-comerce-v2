@@ -1,19 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".navbar-container").innerHTML = getNavbar();
+document.querySelector(".navbar-container").innerHTML = getNavbar();
 
-    const navbar = document.querySelector(".navbar");
-    const placeholder = document.querySelector(".navbar-placeholder");
-    const navbarHeight = navbar.offsetHeight;
+const navbar = document.querySelector(".navbar");
+const placeholder = document.querySelector(".navbar-placeholder");
+const navbarHeight = navbar.offsetHeight;
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > navbarHeight) {
-            navbar.classList.add("fixed-top");
-            placeholder.style.height = `${navbarHeight}px`;
-        } else {
-            navbar.classList.remove("fixed-top");
-            placeholder.style.height = "0px";
-        }
-    });
+window.addEventListener("scroll", () => {
+    if (window.scrollY > navbarHeight) {
+        navbar.classList.add("fixed-top");
+        placeholder.style.height = `${navbarHeight}px`;
+    } else {
+        navbar.classList.remove("fixed-top");
+        placeholder.style.height = "0px";
+    }
 });
 
 const getNavbar = () => `
@@ -43,4 +41,3 @@ const getNavbar = () => `
 		</div>
 		</nav>
 	`;
-
