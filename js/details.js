@@ -11,23 +11,23 @@ mainDetails();
 
 const displaySingleProduct = (productData) => {
     document.querySelector(".details-container").innerHTML = `
-		<div class="card mb-3 shadow" style="width: 40rem;">
-			<div class="row g-0">
-				<div class="col-md-5 p-2">
+		<div class="card mb-3 shadow bg-4 fc-1 rounded-3 p-2" style="width: 40rem;">
+			<div class="row g-0 bg-4">
+				<div class="col-md-5 p-2 bg-white">
 					<img src="${productData.image}" class="img-fluid card-img-top mx-auto my-4 rounded-start" alt="product image">
 				</div>
-				<div class="col-md-7 border">
-					<div class="card-body">
+				<div class="col-md-7 rounded-3">
+					<div class="card-body rounded-3">
 						<h5 class="card-title">${productData.title}</h5>
 						<p class="card-text">${productData.description}</p>
 						<div class="justify-content-center d-flex">
 							<a class="btn btn-success btn-add-cart">add to cart</a>
 						</div>
 					</div>
-					<ul class="list-group list-group-flush text-center">
-						<li class="list-group-item text-body-secondary">Rating: ${productData.rating.rate}</li>
-						<li class="list-group-item text-body-secondary">Amount Bought: ${productData.rating.count}</li>
-						<li class="list-group-item text-success">Price: <strong>${productData.price}</strong></li>
+					<ul class="list-group list-group-flush text-center rounded-3">
+						<li class="list-group-item fc-1 bg-4">Rating: ${productData.rating.rate}</li>
+						<li class="list-group-item fc-1 bg-4">Amount Bought: ${productData.rating.count}</li>
+						<li class="list-group-item fc-1 bg-4">Price: <strong>${productData.price}</strong></li>
 					</ul>
 				</div>
 			</div>
