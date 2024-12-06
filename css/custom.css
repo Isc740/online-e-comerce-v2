@@ -2,6 +2,30 @@
     cursor: pointer;
 }
 
+.bg-1 {
+    background-color: #eef8e2;
+}
+
+.bg-2 {
+    background-color: #cecfc7;
+}
+
+.bg-3 {
+    background-color: #ada8b6;
+}
+
+.bg-4 {
+    background-color: #23022E;
+}
+
+.bg-5 {
+    background-color: #D81E5B;
+}
+
+.fc-1 {
+    color: #eef8e2;
+}
+
 .product-container {
     height: 100vh;
 }

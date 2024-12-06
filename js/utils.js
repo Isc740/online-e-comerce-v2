@@ -66,18 +66,18 @@ const Utils = {
     },
 
     getProductCard: (item) => `
-        <div class="card product-card d-flex flex-column shadow" style="width: 19rem;" data-id="${item.id}">
-          <div class="fluid d-flex justify-content-center">
+        <div class="card product-card d-flex flex-column shadow bg-4 fc-1" style="width: 19rem;" data-id="${item.id}">
+          <div class="fluid d-flex justify-content-center p-2 rounded-2 bg-white mb-3">
             <img src="${item.image}" class="single-product-trigger product-img fluid-img card-img-top mx-auto my-4" alt="product image">
           </div>
           <div class="container">
             <h5 class="card-title">${item.title}</h5>
           </div>
-          <div class="card-body shadow-sm d-flex flex-column justify-content-end my-2">
+          <div class="card-body d-flex flex-column justify-content-end my-2">
             <p class="card-text mb-0">Rating: ${item.rating.rate}</p>
-            <p class="card-text text-body-secondary m-0">Amount Bought: ${item.rating.count}</p>
+            <p class="card-text fc-1 m-0">Amount Bought: ${item.rating.count}</p>
             <p class="card-text text-success mt-0 mb-3">Price: <strong>${item.price}</strong></p>
-            <button class="btn btn-primary product-btn w-100 single-product-trigger">View product</button>
+            <button class="btn btn-info product-btn w-100 single-product-trigger">View product</button>
           </div>
         </div>
     `,

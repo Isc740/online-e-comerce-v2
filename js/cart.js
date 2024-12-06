@@ -65,7 +65,8 @@ const listenRemoveCartItem = (productData, cartItems, sessionId) => {
                             title: "Deleted!",
                             text: "Your product has been removed.",
                             icon: "success",
-                        }).then(() => {
+                        }).then(async () => {
+                            await loadNavbar();
                             renderCartProducts(productData, cartItems);
                         });
                     }
