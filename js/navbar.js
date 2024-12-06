@@ -6,9 +6,9 @@ const getNavbar = async () => {
     const userName = userId ? user.username : "Login";
 
     return `
-    <nav class="navbar navbar-expand-md mb-5 shadow-sm navbar-light bg-1">
+    <nav class="navbar navbar-expand-md mb-5 shadow-sm navbar-light bg-4 fc-1">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html">Online e-comerce</a>
+            <a class="navbar-brand fc-1" href="/index.html">Online e-comerce</a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -22,7 +22,7 @@ const getNavbar = async () => {
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-2">
                     <li class="nav-item">
-                        <a class="btn btn-outline-success d-flex align-items-center gap-2" href="/html/cart.html">
+                        <a class="btn btn-light border px-1 rounded-3 d-flex align-items-center gap-2" href="/html/cart.html">
                             <i class="bi bi-cart"></i>
                             <span class="badge bg-danger">${userCart.products.length}</span>
                         </a>
