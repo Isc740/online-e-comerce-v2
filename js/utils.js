@@ -44,7 +44,9 @@ const Utils = {
 
     async fetchUser(id) {
         try {
-            const response = await fetch(`https://fakestoreapi.com/users/${id}`);
+            const response = await fetch(
+                `https://fakestoreapi.com/users/${id}`,
+            );
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
@@ -58,8 +60,15 @@ const Utils = {
     listenCardClick(targets) {
         targets.forEach((target) => {
             target.addEventListener("click", () => {
-                const productId =
-                    target.parentNode.parentNode.getAttribute("data-id");
+                let productId;
+                if (target.parentNode.getAttribute("data-id")) {
+                    productId = target.parentNode.getAttribute("data-id");
+                } else if (
+                    target.parentNode.parentNode.getAttribute("data-id")
+                ) {
+                    productId =
+                        target.parentNode.parentNode.getAttribute("data-id");
+                }
                 window.location.href = `/html/details.html?id=${productId}`;
             });
         });
@@ -67,8 +76,8 @@ const Utils = {
 
     getProductCard: (item) => `
         <div class="card product-card d-flex flex-column shadow bg-4 fc-1" style="width: 19rem;" data-id="${item.id}">
-          <div class="fluid d-flex justify-content-center p-2 rounded-2 bg-white mb-3">
-            <img src="${item.image}" class="single-product-trigger product-img fluid-img card-img-top mx-auto my-4" alt="product image">
+          <div class="fluid d-flex justify-content-center p-2 rounded-2 bg-white mb-3 single-product-trigger">
+            <img src="${item.image}" class="product-img fluid-img card-img-top mx-auto my-4" alt="product image">
           </div>
           <div class="container">
             <h5 class="card-title">${item.title}</h5>

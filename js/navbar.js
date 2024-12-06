@@ -6,7 +6,7 @@ const getNavbar = async () => {
     const userName = userId ? user.username : "Login";
 
     return `
-    <nav class="navbar navbar-expand-md bg-body-tertiary mb-5 shadow-sm navbar-light">
+    <nav class="navbar navbar-expand-md mb-5 shadow-sm navbar-light bg-1">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">Online e-comerce</a>
             <button
